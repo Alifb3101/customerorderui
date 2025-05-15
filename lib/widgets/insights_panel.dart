@@ -20,9 +20,9 @@ class _InsightsState extends State<Insights> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getWidth(context),
+      width: getWidth(context) ,
       height: getHeight(context) * 0.3,
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      // padding:  EdgeInsets.symmetric(vertical: getResponsive(context)),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
@@ -93,11 +93,11 @@ class _InsightsState extends State<Insights> {
     VoidCallback? onTap,
   }) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      width: 200,
+      margin:  EdgeInsets.symmetric(horizontal: 8),
+      width: getWidth(context)* 0.5,
       child: Material(
         color: Colors.transparent,
-        elevation: 6,
+        elevation: 15,
         borderRadius: BorderRadius.circular(16),
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
@@ -114,26 +114,26 @@ class _InsightsState extends State<Insights> {
                 BoxShadow(
                   color: gradientEnd.withOpacity(0.3),
                   blurRadius: 10,
-                  offset: const Offset(0, 6),
+                  offset:  Offset(0, 6),
                 ),
               ],
             ),
-            padding: const EdgeInsets.all(20),
+            padding:  EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(icon, size: 40, color: Colors.white),
-                const SizedBox(height: 12),
+                 SizedBox(height: 12),
                 Text(
                   title,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 6),
+                 SizedBox(height: 6),
                 Text(
                   subtitle,
                   style: TextStyle(
@@ -158,39 +158,39 @@ class _InsightsState extends State<Insights> {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
+      shape:  RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       builder: (context) {
         return Container(
           color: Colors.white,
-          padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+          padding:  EdgeInsets.fromLTRB(16, 24, 16, 16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 title,
-                style: const TextStyle(
+                style:  TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: Colors.indigo,
                 ),
               ),
-              const Divider(height: 24, thickness: 1),
+               Divider(height: 24, thickness: 1),
               Expanded(
                 child: ListView.separated(
                   itemCount: items.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 8),
+                  separatorBuilder: (_, __) =>  SizedBox(height: 8),
                   itemBuilder: (context, index) {
                     return ListTile(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                       tileColor: Colors.indigo.shade50,
-                      leading: const Icon(Icons.label_important, color: Colors.indigo),
+                      leading:  Icon(Icons.label_important, color: Colors.indigo),
                       title: Text(
                         items[index],
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontSize: 16,
                           color: Colors.black87,
                         ),
@@ -211,7 +211,7 @@ class _InsightsState extends State<Insights> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
+      shape:  RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       builder: (context) {
@@ -249,8 +249,8 @@ class _InsightsState extends State<Insights> {
                           0,
                               (sum, item) =>
                           sum +
-                              ((item['price'] ?? 0) as num) *
-                                  ((item['quantity'] ?? 1) as int),
+                              ((item['price'] ?? 0)) *
+                                  ((item['quantity'] ?? 1)),
                         );
 
                         return Card(

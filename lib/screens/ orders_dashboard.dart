@@ -17,23 +17,49 @@ class _CustomerPageState extends State<CustomerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        centerTitle: true,
-        elevation: 2,
-        title: const Text(
-          "Order Details",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.vertical(bottom: Radius.circular(20)),
+          child: AppBar(
+            backgroundColor: Colors.blueAccent.withOpacity(0.9),
+            elevation: 6,
+            centerTitle: true,
+            title: const Text(
+              "Customer Dashboard",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                letterSpacing: 1.2,
+                shadows: [Shadow(color: Colors.black26, blurRadius: 3)],
+              ),
+            ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  // Add dynamic search
+                },
+              ),
+
+              const CircleAvatar(
+                backgroundImage: AssetImage('assets/egle.jpg'),
+                radius: 16,
+              ),
+              const SizedBox(width: 12),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding:  EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            const Insights(), // remove if you don't use this
-            const SizedBox(height: 20),
+             Insights(), // remove if you don't use this
+             SizedBox(height: 20),
 
 
             const Padding(
