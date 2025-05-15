@@ -39,7 +39,7 @@ class _CustomerPageState extends State<CustomerPage> {
               IconButton(
                 icon: const Icon(Icons.search),
                 onPressed: () {
-                  // Add dynamic search
+
                 },
               ),
 
@@ -58,7 +58,7 @@ class _CustomerPageState extends State<CustomerPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-             Insights(), // remove if you don't use this
+             Insights(),
              SizedBox(height: 20),
 
 
